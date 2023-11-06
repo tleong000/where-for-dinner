@@ -1,0 +1,34 @@
+id: 57d7f2c8-8e7d-4496-9e72-bba2fc818e68
+timestamp: 2023-11-06T17:10:46Z
+username: guest
+source: TAP-GUI
+accelerator:
+  name: where-for-dinner
+  source:
+    image: registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:49c55504f27f5ce3d411a8ad572349ee11be98395e15ed750017bc88c942a943
+fragments:
+  - name: build-wrapper-maven
+    source:
+      image: registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+  - name: tap-workload
+    source:
+      image: registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:d9c7d8d322f0740666ba7c752a9174d1eb66274338c4f0e211edb1d448104c2a
+options:
+  cacheType: inmemCache
+  dbName: db-where-for-dinner
+  dbType: mysql
+  dynamicDBClass: mysql-unmanaged
+  dynamicDatabase: true
+  dynamicMsgBroker: true
+  dynamicMsgBrokerClass: rabbitmq-unmanaged
+  enableCloudEvents: false
+  enableSecurity: false
+  gatewayType: ossscg
+  includeBuildToolWrapper: true
+  msgBrokerType: rabbitmq
+  msgbrokerName: msgbroker-where-for-dinner
+  numRabbitMQClusterNodes: 1
+  ployglotWorkloads: false
+  projectName: where-for-dinner
+  serviceNamespace: service-instances
+  workloadNamespace: workloads
